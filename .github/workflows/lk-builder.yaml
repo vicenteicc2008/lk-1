@@ -1,4 +1,4 @@
-name: Build LittleKernel for all supported lumias
+name: Build LittleKernel for Samsung Galaxy S5 Mini Duos (G800H)
 on: [push]
 jobs:
   Build-LittleKernel-All:
@@ -8,9 +8,8 @@ jobs:
       - name: Check out LK
         uses: actions/checkout@v2
       - run: make -j$(nproc) msm8226
-      - run: mv build-msm8226/lk.bin
       - name: Upload msm8226 lk.bin
         uses: actions/upload-artifact@v2
         with:
-          name: tesla-emmc_apppsboot.mbn
+          name: lk.bin
           path: build-msm8226/lk.bin
